@@ -15,10 +15,10 @@
                 <div class="">
                     <h1>Kalkulator sederhana dengan laravel</h1>
                 </div>
-                <a href="{{ route('tambah') }}">Tambah</a>
-                <a href="{{ route('kurang') }}">Kurang</a>
-                <a href="{{ route('kali') }}">Kali</a>
-                <a href="{{ route('bagi') }}">Bagi</a>
+                <a href="{{ route('tambah') }}" class="badge rounded-pill text-bg-success">Tambah</a>
+                <a href="{{ route('kurang') }}" class="badge rounded-pill text-bg-danger">Kurang</a>
+                <a href="{{ route('kali') }}" class="badge rounded-pill text-bg-warning">Kali</a>
+                <a href="{{ route('bagi') }}" class="badge rounded-pill text-bg-info">Bagi</a>
                 <a href="{{ route('user.index') }}">User</a>
 
                 <div class="content">

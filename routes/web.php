@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 // post : mengirim data dari form (insert, update)
 // put : mengirim data dari form (update)
 // delete : mengirim data dari form (delete)
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [LoginController::class, 'index']);
+Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
+
+//grouping routing setelah login
+Route::middleware(['auth'])->group(function(){
+    Route::resource('dashboard', DashboardController::class);
 });
+
 
 Route::get('latihan', [LatihanController::class, 'index']);
 Route::get('edit/{id}', [LatihanController::class, 'edit']);
@@ -32,3 +39,4 @@ Route::post('store-kali', [KalkulatorController::class, 'storeKali'])->name('sto
 Route::post('store-bagi', [KalkulatorController::class, 'storeBagi'])->name('store-bagi');
 
 Route::resource('user', UsersController::class);
+Route::get('delete/{id}', [UsersController::class, 'delete'])->name('delete');
