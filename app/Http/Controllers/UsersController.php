@@ -36,6 +36,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        // bisa pilih salah satu enaknya gmn, fifi pilih yang bawah ke 1, makanya yg 2 di komentarin
         User::create($request->all());
         // User::create([
         //     'name' => $request->name,

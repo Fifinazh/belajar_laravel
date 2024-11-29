@@ -35,6 +35,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        // bisa pilih salah satu enaknya gmn, fifi pilih yang bawah ke 1, makanya yg 2 di komentarin
         Customer::create($request->all());
         // User::create([
         //     'name' => $request->name,
